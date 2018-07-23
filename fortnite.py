@@ -14,6 +14,17 @@ default_poi_list = ['Junk Junction', 'Lazy Links', 'Risky Reels', 'Haunted Hills
                     'Unnamed: Indoor Soccer Stadium', 'Unnamed: Spires'
                     ]
 
+# Putting Coordinates or POIs here will remove locations from both coordinates and
+#   POI lists
+# Defaults are coordinates that are all water.
+veto_list = ['A1', 'F1', 'G1', 'J1', 'A8', 'A9', 'B10', 'B9', 'B10', 'C10', 
+             'J10', 'J1']
+
+#Removes POIs from the default POI list
+for item in veto_list:
+  if item in default_poi_list:
+    default_poi_list.remove(item)
+
 class Locations():
   def __init__(self):
     self.perm_coordinate_list = self.gen_coordinate_list()
@@ -29,6 +40,10 @@ class Locations():
       letter = str(chr(base + ord('A')))
       for number in range(1,11):
         coordinate_list.append(letter + str(number))
+
+    for item in veto_list:
+      if item in coordinate_list:
+        coordinate_list.remove(item)
     
     return coordinate_list
 
