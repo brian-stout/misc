@@ -64,22 +64,22 @@ list_obj = Locations()
 
 if __name__ == "__main__":
   while True:
+    option = ''
     print("\nSelect an option")
     print("A: Print POI")
     print("B: Print random coordinates")
     print("C: Print non-repeating random POI")
     print("D: Print non-repeating random coordinates")
     option = input(":")
-    option = option.upper()
     print("")
 
-    if option == 'A' or '1':
+    if option == 'A':
       list_obj.print_poi()
-    elif option == 'B' or '2':
+    elif option == 'B':
       list_obj.print_coordinates()
-    elif option == 'C' or '3':
+    elif option == 'C':
       list_obj.print_running_poi()
-    elif option == 'D' or '4':
+    elif option == 'D':
       list_obj.print_running_coordinate()
     else:
       print("Not a valid option")
